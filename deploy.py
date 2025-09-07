@@ -18,6 +18,8 @@ def run(cmd):
         output += line
         sys.stdout.write(line)
     process.wait()
+    if process.returncode != 0:
+        raise Exception(f"subcommand failed with code {process.returncode}")
     return output
 
 def main():
